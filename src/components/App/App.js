@@ -13,9 +13,10 @@ import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
-import AboutPage from '../AboutPage/AboutPage';
+import AboutPage from '../AllUsers/AllUsers';
 import UserPage from '../UserPage/UserPage';
-import InfoPage from '../InfoPage/InfoPage';
+import InfoPage from '../MatchedUsers/MatchedUsers';
+import ChatMessages from '../ChatMessages/ChatMessages';
 
 import './App.css';
 
@@ -34,7 +35,7 @@ class App extends Component {
             <Redirect exact from="/" to="/home" />
             {/* Visiting localhost:3000/about will show the about page.
             This is a route anyone can see, no login necessary */}
-            <Route
+            <ProtectedRoute
               exact
               path="/about"
               component={AboutPage}
@@ -54,6 +55,11 @@ class App extends Component {
               exact
               path="/info"
               component={InfoPage}
+            />
+            <ProtectedRoute
+              exact
+              path="/chatmessages"
+              component={ChatMessages}
             />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
