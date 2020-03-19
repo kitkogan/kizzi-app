@@ -8,7 +8,7 @@ import React from 'react';
 const ChatMessages = () => (
   <div>
     <p>
-      Chat Messages
+      Chat Message Thread List will appear here
     </p>
   </div>
 );

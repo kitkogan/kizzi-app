@@ -52,6 +52,7 @@ class RegisterPage extends Component {
                 onChange={this.handleInputChangeFor('username')}
               />
             </label>
+            
           </div>
           <div>
             <label htmlFor="password">
@@ -63,6 +64,7 @@ class RegisterPage extends Component {
                 onChange={this.handleInputChangeFor('password')}
               />
             </label>
+            
           </div>
           <div>
             <input
