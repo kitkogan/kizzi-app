@@ -1,11 +1,24 @@
 import React , {Component} from 'react';
-// import AllUsers from '../AllUsers/AllUsers';
+
+
 
 class Conversation extends Component {
+    state = {
+        messageList : [
+            {id: 1, username: 'Kit', message: 'Hi Kyle!'},
+            {id: 2, username: 'Kyle', message: 'Hi Kit, this is Kyle responding!'},
+        ],
+    }
+
+        
+      
     render () {
         return (
-            // <AllUsers userList={this.props.messages} />
-            <p>conversation with appear here</p>
+            <ul>{this.state.messageList.map(convo => 
+                <li key={convo.id}>
+                  {convo.username}: {convo.message} </li>
+                )}
+            </ul>
         )    
     }
 }

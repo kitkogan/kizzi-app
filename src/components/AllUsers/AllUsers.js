@@ -2,7 +2,7 @@ import React , {Component} from 'react';
 import {withRouter} from 'react-router-dom';
 
 class AllUsers extends Component {
-  state= {
+  state = {
     userList: [
       {id: 1, username: 'Kit', message: 'Hi Kyle!'},
       {id: 2, username: 'Kyle', message: 'Hi Kit, this is Kyle responding!'},
