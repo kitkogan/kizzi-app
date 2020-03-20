@@ -66,6 +66,29 @@ class RegisterPage extends Component {
             </label>
             
           </div>
+          {/* <div>
+            <label htmlFor="sign">              
+              Zodiac Sign:
+              <select value={this.state.sign}
+                onChange={this.handleInputChangeFor('sign')}>
+                <option value="0">Please Select Your Sign</option>
+                <option value="1">Capricorn (Dec 22-Jan 20)</option>
+                <option value="2">Aquarius (Jan 21-Feb 18)</option>
+                <option value="3">Pisces (Feb 19-Mar 20)</option>
+                <option value="4">Aries (Mar 21-Apr 20)</option>
+                <option value="5">Taurus (Apr 21-May 21)</option>
+                <option value="6">Gemini (May 22-Jun 21)</option>
+                <option value="7">Cancer (Jun 22-Jun 21)</option>
+                <option value="8">Leo (Jul 23-Aug 23)</option>
+                <option value="9">Virgo (Aug 21-Sep22)</option>
+                <option value="10">Libra (Sep 23-Oct 23)</option>
+                <option value="11">Scorpio (Oct 24-Nov 22)</option>
+                <option value="12">Sagittarius (Nov 23-Dec 21)</option>
+              </select>
+            </label>
+              
+            
+          </div> */}
           <div>
             <input
               className="register"

@@ -13,7 +13,7 @@ const UserPage = (props) => (
     <h2>
       {props.user.dob}
       {props.user.zip}
-      <select>
+      {/* <select>
         <option value="0">Please Select Your Sign</option>
         <option value="1">Capricorn (Dec 22-Jan 20)</option>
         <option value="2">Aquarius (Jan 21-Feb 18)</option>
@@ -27,7 +27,7 @@ const UserPage = (props) => (
         <option value="10">Libra (Sep 23-Oct 23)</option>
         <option value="11">Scorpio (Oct 24-Nov 22)</option>
         <option value="12">Sagittarius (Nov 23-Dec 21)</option>
-      </select>
+      </select> */}
       {props.user.description}</h2>
     {/* <p>Your ID is: {props.user.id}</p> */}
     <EditProfileButton className="edit-profile" />

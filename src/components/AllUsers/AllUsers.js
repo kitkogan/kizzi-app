@@ -1,18 +1,31 @@
-import React from 'react';
+import React , {Component} from 'react';
 
-// This is one of our simplest components
-// It doesn't have local state, so it can be a function component.
-// It doesn't dispatch any redux actions or display any part of redux state
-// or even care what the redux state is, so it doesn't need 'connect()'
+class AllUsers extends Component {
+  state= {
+    userList: [
+      {id: 1, username: 'Kit', message: 'Hi Kyle!'},
+      {id: 2, username: 'Kyle', message: 'Hi Kit, this is Kyle responding!'},
+    ],
+  };
 
-const AllUsers = () => (
-  <div>
-    <div>
-      <p>
-        User List will appear here
-      </p>
-    </div>
-  </div>
-);
+  sendMessage = () => {
+    console.log('in sendmessage');
+  }
+
+  render() {
+    return (
+      <div>
+        <div>
+           <ul>
+            {this.state.userList.map(user => 
+              <li key={user.id}>
+                {user.username}<button className='messageButton' onClick={this.sendMessage}>Send a Message</button></li>
+              )}
+           </ul>
+        </div>
+      </div>
+    )
+  }
+} 
 
 export default AllUsers;
