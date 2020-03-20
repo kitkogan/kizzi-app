@@ -1,4 +1,5 @@
 import React , {Component} from 'react';
+import {withRouter} from 'react-router-dom';
 
 class AllUsers extends Component {
   state= {
@@ -10,6 +11,7 @@ class AllUsers extends Component {
 
   sendMessage = () => {
     console.log('in sendmessage');
+    this.props.history.push('/conversation');
   }
 
   render() {
@@ -28,4 +30,4 @@ class AllUsers extends Component {
   }
 } 
 
-export default AllUsers;
+export default withRouter(AllUsers);

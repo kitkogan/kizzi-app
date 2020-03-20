@@ -17,6 +17,7 @@ import AboutPage from '../AllUsers/AllUsers';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../MatchedUsers/MatchedUsers';
 import ChatMessages from '../ChatMessages/ChatMessages';
+import Conversation from '../Conversation/Conversation';
 
 import './App.css';
 
@@ -60,6 +61,11 @@ class App extends Component {
               exact
               path="/chatmessages"
               component={ChatMessages}
+            />
+            <ProtectedRoute
+              exact
+              path="/conversation"
+              component={Conversation}
             />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
