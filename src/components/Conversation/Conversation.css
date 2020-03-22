@@ -1,0 +1,21 @@
+.convoDiv {
+    display: grid;
+    margin: 0px auto;
+    padding: 5px;
+    height: 400px;
+	width: 600px;
+}
+
+.sender {
+    float: right;
+    height: 400px;
+    width: 48%;
+    text-align: right;
+}
+
+.receiver {
+    float: left;
+    height: 400px;
+    width: 48%;
+    text-align: left;
+}

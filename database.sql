@@ -8,7 +8,46 @@ CREATE TABLE "user" (
     "username" VARCHAR (80) UNIQUE NOT NULL,
     "password" VARCHAR (1000) NOT NULL,
     "dob" DATE NOT NULL,
-    "zip" INT (5) NOT NULL,
+    "zip" VARCHAR (5) NOT NULL,
+    "profile_description" VARCHAR (1000)
+);
+
+INSERT INTO "user" ("username", "password", "dob", "zip", "profile_description")
+VALUES ('kit', '1234', '04/29/1984', '55409', 'snuggling a cat and listening to techno are two of my favorite things.'),
+('the_butchelor', '1234', '01/23/1983', '98661', 'Handsome, genderqueer Butchelor hoping to marry rich. Must love cats.');
+
+DROP TABLE "user";
+
+CREATE TABLE "user" (
+    "id" SERIAL PRIMARY KEY,
+    "username" VARCHAR (80) UNIQUE NOT NULL,
+    "password" VARCHAR (1000) NOT NULL,
+    "dob" DATE NOT NULL,
+    "zip" VARCHAR (5) NOT NULL,
     "profile_description" VARCHAR (400)
 );
 
+INSERT INTO "user" ("username", "password", "dob", "zip", "profile_description")
+VALUES ('kit', '1234', '04/29/1984', '55409', 'snuggling a cat and listening to techno are two of my favorite things.'),
+('the_butchelor', '1234', '01/23/1983', '98661', 'Handsome, genderqueer Butchelor hoping to marry rich. Must love cats.');
+
+SELECT * FROM "user";
+
+CREATE TABLE "messages" (
+	"message_id" SERIAL PRIMARY KEY,
+	"message_text" VARCHAR (1000) NOT NULL
+	);
+	
+CREATE TABLE "user_messages" (
+	"id" SERIAL PRIMARY KEY,
+	"sender_id" INT REFERENCES "user",
+	"recipient_id" INT REFERENCES "user",
+	"message_id" INT REFERENCES "messages"
+	);
+
+
+
+
+
+
+    
