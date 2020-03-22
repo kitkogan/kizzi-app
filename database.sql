@@ -46,7 +46,7 @@ CREATE TABLE "messages" (
     "timestamp" TIME
 	);
 	
-CREATE TABLE "user_messages" (
+CREATE TABLE "conversations" (
 	"id" SERIAL PRIMARY KEY,
 	"sender_id" INT REFERENCES "user",
 	"recipient_id" INT REFERENCES "user",
