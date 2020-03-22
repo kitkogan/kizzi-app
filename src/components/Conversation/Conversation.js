@@ -6,11 +6,7 @@ class Conversation extends Component {
     state = {
         newMessage: {
             id: '', username: '', message: ''
-        },
-        messageList : [
-            {id: 1, username: 'Kit', message: 'Hi Kyle!'},
-            {id: 2, username: 'Kyle', message: 'Hi Kit, this is Kyle responding!'},
-        ],
+        }
     }
 
     handleMessageChange = (event, propertyName) => {
@@ -28,9 +24,8 @@ class Conversation extends Component {
         console.log('sent message');
         this.setState({
             newMessage: {
-                message: ''
-            },
-            messageList: [...this.state.messageList, this.state.newMessage],
+                id: '', username: '', message: ''
+            }
         });
        
     }
@@ -38,11 +33,11 @@ class Conversation extends Component {
     render () {
         return (
             <>
-                <ul>{this.state.messageList.map(convo => 
+                {/* <ul>{this.state.messageList.map(convo => 
                     <li key={convo.id}>
                     {convo.username} : {convo.message} </li>
                     )}
-                </ul>
+                </ul> */}
                 
                 {/* <div className='convoDiv'>
                     <div className='senderDiv'>
