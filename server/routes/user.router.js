@@ -19,7 +19,8 @@ router.get('/all', (req, res) => {
   const queryText = 'SELECT * FROM "user";';
   pool.query(queryText)
   .then((result) => {res.send(result.rows)})
-  .catch(() => res.sendStatus(500));
+  
+  .catch((err) => res.sendStatus(500));
   
 });
 // Handles POST request with new user data

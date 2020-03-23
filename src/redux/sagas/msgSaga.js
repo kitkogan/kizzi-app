@@ -2,13 +2,13 @@ import axios from 'axios';
 import { put, takeEvery } from 'redux-saga/effects';
 
 function* getConvo() {
-    try{
+    
       const msgResponse = yield axios.get('/api/messages');
-      yield put({type: 'SET_MSG',payload: msgResponse.data});
-    }
-    catch(err) {
-      console.log('error fetching convos', err)
-    }
+      console.log('messages', msgResponse)
+      yield put({
+        type: 'SET_MSG',
+        payload: msgResponse.data
+      })
   }
   
   function* msgSaga() {

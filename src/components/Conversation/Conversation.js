@@ -16,7 +16,7 @@ class Conversation extends Component {
 
     getConvo = () => {
         console.log('in get convo');
-        this.props.dispatch({type: 'GET_CONVO'});
+        this.props.dispatch({type: 'GET_MSG'});
     }
 
     handleMessageChange = (event, propertyName) => {
@@ -44,11 +44,11 @@ class Conversation extends Component {
         return (
             <>
                  <ul>
-                    {/* {this.props.reduxState.msg.map((message) => {
+                    {this.props.reduxState.msg.map((message) => {
                     return (<li key={message.id}>{message.message_text}
                     </li>);
-                    })} */}
-                    <li>TEST</li>
+                    })}
+                    {/* <li>TEST</li> */}
                  </ul>
                 {/* <ul>{this.state.messageList.map(convo => 
                     <li key={convo.id}>
