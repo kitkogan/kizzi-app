@@ -18,10 +18,10 @@ class AllUsers extends Component {
     this.props.dispatch({type: 'GET_USERLIST'});
   }
 
-  sendMessage = () => {
-    console.log('in sendmessage');
-    this.props.history.push('/conversation');
-  }
+  // sendMessage = () => {
+  //   console.log('in sendmessage');
+  //   this.props.history.push('/conversation');
+  // }
 
   render() {
     return (
