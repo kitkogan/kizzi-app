@@ -18,16 +18,17 @@ class AllUsers extends Component {
     this.props.dispatch({type: 'GET_USERLIST'});
   }
 
-  // sendMessage = () => {
-  //   console.log('in sendmessage');
-  //   this.props.history.push('/conversation');
-  // }
+  sendMessage = () => {
+    console.log('in sendmessage');
+    this.props.history.push('/conversation');
+  }
 
   render() {
     return (
       <ul>
         {this.props.reduxState.userlist.map((user) => {
-          return (<li key>{user.username}</li>)
+          return (<li key={user.id}>{user.username}
+          <button onClick={this.sendMessage}>Send Message</button><button onClick={this.removeItem}>BLOCK</button></li>);
           // return (
           //   <UserItem key={userItem.id} userItem={userItem} />
           // )
