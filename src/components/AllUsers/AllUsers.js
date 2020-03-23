@@ -26,8 +26,8 @@ class AllUsers extends Component {
   render() {
     return (
       <ul>
-        {this.props.reduxState.userlist.map(() => {
-          return (<li key>TEST</li>)
+        {this.props.reduxState.userlist.map((user) => {
+          return (<li key>{user.username}</li>)
           // return (
           //   <UserItem key={userItem.id} userItem={userItem} />
           // )
