@@ -26,11 +26,11 @@ function* fetchUser() {
 
 function* userSaga() {
   yield takeLatest('FETCH_USER', fetchUser);
-  yield takeEvery('GET_USERS', getUsers); 
+  yield takeEvery('GET_USERLIST', getUsers); 
 }
 
 function* getUsers() {
-  const userResponse = yield axios.get('/user')
+  const userResponse = yield axios.get('api/user')
   console.log('users', userResponse);
   yield put({
     type: '',

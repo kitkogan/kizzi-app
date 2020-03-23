@@ -14,11 +14,13 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 
 //returns the list of all users
 router.get('/', (req, res) => {
-  const username = req.body.username
+  console.log('in get', req.body)
+  // const username = req.body.username
   const queryText = 'SELECT "user"."username" FROM "user";';
-  pool.query(queryText, [username])
+  pool.query(queryText)
   .then(() => res.sendStatus(200))
   .catch(() => res.sendStatus(500));
+  
 });
 // Handles POST request with new user data
 // The only thing different from this and every other post we've seen

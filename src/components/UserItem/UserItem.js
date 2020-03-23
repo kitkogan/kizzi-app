@@ -7,17 +7,22 @@ class UserItem extends Component {
  
 // }
 
-    getAllUsers() {
-            this.props.dispatch({type: 'SET_USERLIST'});
-    }
+    // getUsers() {
+    //         this.props.dispatch({type: 'SET_USERLIST'});
+    // }
 
     render() {
+        let user = this.props.user
         return (
-            <li>
-                <span>{this.props.userItem.user}</span>
-                <button onClick={this.removeItem}>BLOCK</button>
-                <button onClick={this.sendMessage}>Send Message</button>
-            </li>
+            <div>
+                <li>
+                    <span>{this.props.userItem.user}</span>
+                    <button onClick={this.removeItem}>BLOCK</button>
+                    <button onClick={this.sendMessage}>Send Message</button>
+                </li>
+                <h2>{user.username}</h2>
+            </div>
+            
         )
     }
 }

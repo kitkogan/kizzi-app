@@ -15,7 +15,7 @@ class AllUsers extends Component {
   }
 
   getUsers() {
-    this.props.dispatch({type: 'SET_USERS'});
+    this.props.dispatch({type: 'GET_USERLIST'});
   }
 
   sendMessage = () => {
