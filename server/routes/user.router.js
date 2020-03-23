@@ -13,12 +13,12 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 });
 
 //returns the list of all users
-router.get('/', (req, res) => {
-  console.log('in get', req.body)
+router.get('/all', (req, res) => {
+  console.log('in get', req.user.username);
   // const username = req.body.username
-  const queryText = 'SELECT "user"."username" FROM "user";';
+  const queryText = 'SELECT * FROM "user";';
   pool.query(queryText)
-  .then(() => res.sendStatus(200))
+  .then((result) => {res.send(result.rows)})
   .catch(() => res.sendStatus(500));
   
 });

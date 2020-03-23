@@ -1,5 +1,5 @@
 import React , {Component} from 'react';
-import UserItem from '../UserItem/UserItem';
+// import UserItem from '../UserItem/UserItem';
 import { connect } from 'react-redux';
 
 class AllUsers extends Component {
@@ -26,10 +26,11 @@ class AllUsers extends Component {
   render() {
     return (
       <ul>
-        {this.props.reduxState.userlist.map((userItem) => {
-          return (
-            <UserItem key={userItem.id} userItem={userItem} />
-          )
+        {this.props.reduxState.userlist.map(() => {
+          return (<li key>TEST</li>)
+          // return (
+          //   <UserItem key={userItem.id} userItem={userItem} />
+          // )
         })}
       </ul>
     )

@@ -30,10 +30,10 @@ function* userSaga() {
 }
 
 function* getUsers() {
-  const userResponse = yield axios.get('api/user')
+  const userResponse = yield axios.get('api/user/all')
   console.log('users', userResponse);
   yield put({
-    type: '',
+    type: 'SET_USERLIST',
     payload: userResponse.data
   })
 }
