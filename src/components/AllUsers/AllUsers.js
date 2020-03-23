@@ -3,12 +3,6 @@ import React , {Component} from 'react';
 import { connect } from 'react-redux';
 
 class AllUsers extends Component {
-  // state = {
-  //   userList: [
-  //     {id: 1, username: 'Kit', message: 'Hi Kyle!'},
-  //     {id: 2, username: 'Kyle', message: 'Hi Kit, this is Kyle responding!'},
-  //   ],
-  // };
 
   componentDidMount() {
     this.getUsers();
@@ -29,9 +23,6 @@ class AllUsers extends Component {
         {this.props.reduxState.userlist.map((user) => {
           return (<li key={user.id}>{user.username}
           <button onClick={this.sendMessage}>Send Message</button><button onClick={this.removeItem}>BLOCK</button></li>);
-          // return (
-          //   <UserItem key={userItem.id} userItem={userItem} />
-          // )
         })}
       </ul>
     )

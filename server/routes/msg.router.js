@@ -5,7 +5,7 @@ const router = express.Router();
 /**
  * GET route template
  */
-router.get('/', (req, res) => {
+router.get('/messages', (req, res) => {
     let queryText = `SELECT m.message_text, c.sender_id, c.recipient_id FROM conversations c
     JOIN "user" u1 on u1.id = c.recipient_id
     JOIN "user" u2 on u2.id = c.sender_id
@@ -24,7 +24,7 @@ router.get('/', (req, res) => {
 /**
  * POST route template
  */
-router.post('/', (req, res) => {
+router.post('/newMessage', (req, res) => {
 
 });
 

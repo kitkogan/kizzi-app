@@ -1,5 +1,6 @@
 import React , {Component} from 'react';
 import './Conversation.css';
+import {connect} from 'react-redux';
 
 
 class Conversation extends Component {
@@ -7,6 +8,15 @@ class Conversation extends Component {
         newMessage: {
             id: '', username: '', message: ''
         }
+    }
+
+    componentDidMount() {
+        this.getConvo();
+    }
+
+    getConvo = () => {
+        console.log('in get convo');
+        this.props.dispatch({type: 'GET_CONVO'});
     }
 
     handleMessageChange = (event, propertyName) => {
@@ -33,11 +43,19 @@ class Conversation extends Component {
     render () {
         return (
             <>
+                 <ul>
+                    {/* {this.props.reduxState.msg.map((message) => {
+                    return (<li key={message.id}>{message.message_text}
+                    </li>);
+                    })} */}
+                    <li>TEST</li>
+                 </ul>
                 {/* <ul>{this.state.messageList.map(convo => 
                     <li key={convo.id}>
                     {convo.username} : {convo.message} </li>
                     )}
                 </ul> */}
+   
                 
                 {/* <div className='convoDiv'>
                     <div className='senderDiv'>
@@ -59,4 +77,8 @@ class Conversation extends Component {
         )   
     }
 }
-export default Conversation;
+const mapReduxStateToProps = (reduxState) => ({
+    reduxState
+  });
+  
+  export default connect(mapReduxStateToProps)(Conversation);
