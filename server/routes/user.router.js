@@ -12,6 +12,14 @@ router.get('/', rejectUnauthenticated, (req, res) => {
   res.send(req.user);
 });
 
+//returns the list of all users
+router.get('/', (req, res) => {
+  const username = req.body.username
+  const queryText = 'SELECT "user"."username" FROM "user";';
+  pool.query(queryText, [username])
+  .then(() => res.sendStatus(200))
+  .catch(() => res.sendStatus(500));
+});
 // Handles POST request with new user data
 // The only thing different from this and every other post we've seen
 // is that the password gets encrypted before being inserted

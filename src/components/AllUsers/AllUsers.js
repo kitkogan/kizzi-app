@@ -1,13 +1,22 @@
 import React , {Component} from 'react';
-import {withRouter} from 'react-router-dom';
+import UserItem from '../UserItem/UserItem';
+import { connect } from 'react-redux';
 
 class AllUsers extends Component {
-  state = {
-    userList: [
-      {id: 1, username: 'Kit', message: 'Hi Kyle!'},
-      {id: 2, username: 'Kyle', message: 'Hi Kit, this is Kyle responding!'},
-    ],
-  };
+  // state = {
+  //   userList: [
+  //     {id: 1, username: 'Kit', message: 'Hi Kyle!'},
+  //     {id: 2, username: 'Kyle', message: 'Hi Kit, this is Kyle responding!'},
+  //   ],
+  // };
+
+  componentDidMount() {
+    this.getUsers();
+  }
+
+  getUsers() {
+    this.props.dispatch({type: 'SET_USERS'});
+  }
 
   sendMessage = () => {
     console.log('in sendmessage');
@@ -16,18 +25,19 @@ class AllUsers extends Component {
 
   render() {
     return (
-      <div>
-        <div>
-           <ul>
-            {this.state.userList.map(user => 
-              <li key={user.id}>
-                {user.username}<button className='messageButton' onClick={this.sendMessage}>Send a Message</button></li>
-              )}
-           </ul>
-        </div>
-      </div>
+      <ul>
+        {this.props.reduxState.userlist.map((userItem) => {
+          return (
+            <UserItem key={userItem.id} userItem={userItem} />
+          )
+        })}
+      </ul>
     )
   }
 } 
 
-export default withRouter(AllUsers);
+const mapReduxStateToProps = (reduxState) => ({
+  reduxState
+});
+
+export default connect(mapReduxStateToProps)(AllUsers);
