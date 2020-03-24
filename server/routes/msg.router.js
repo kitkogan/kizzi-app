@@ -5,20 +5,20 @@ const router = express.Router();
 /**
  * GET route template
  */
-router.get('/', (req, res) => {
-    console.log('in get messages', req.messages.message_text);
+router.get('/:id', (req, res) => {
+    console.log('in get messages',req.params.id);
     let queryText = `SELECT m.message_text, c.sender_id, c.recipient_id FROM conversations c
     JOIN "user" u1 on u1.id = c.recipient_id
     JOIN "user" u2 on u2.id = c.sender_id
     JOIN messages m on m.id = c.message_id
     WHERE u1.id = $1 OR u2.id = $1;`;
-    pool.query(queryText)
+    pool.query(queryText, [req.params.id])
     .then((result) => {
         res.send(result.rows);
     })
     .catch((err) => {
         console.log(`Error making query ${queryText}`, err);
-        res.sendStatus(500);
+        res.sendStatus(504);
     });
 });
 

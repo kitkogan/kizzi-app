@@ -16,7 +16,7 @@ class Conversation extends Component {
 
     getConvo = () => {
         console.log('in get convo');
-        this.props.dispatch({type: 'GET_MSG'});
+        this.props.dispatch({type: 'GET_MSG', payload: this.props.reduxState.user.id});
     }
 
     handleMessageChange = (event, propertyName) => {
