@@ -12,6 +12,7 @@ CREATE TABLE "user" (
     -- "profile_description" VARCHAR (1000)
 );
 
+-- starter dummy data
 INSERT INTO "user" (
     "username",
     "password", 
