@@ -9,10 +9,11 @@ const UserPage = (props) => (
   <div>
     <h1 id="welcome">
       Welcome, { props.user.username }!
+      {/* {props.user.zip} */}
     </h1>
     {/* <h2> */}
-      {/* {props.user.dob}
-      {props.user.zip} */}
+      
+      
       {/* <select>
         <option value="0">Please Select Your Sign</option>
         <option value="1">Capricorn (Dec 22-Jan 20)</option>

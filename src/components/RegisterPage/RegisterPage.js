@@ -5,9 +5,9 @@ class RegisterPage extends Component {
   state = {
     username: '',
     password: '',
-    dob: ''
-    // sign: '',
-    // zip: ''
+    dob: '',
+    sign: '',
+    zip: ''
   };
 
   registerUser = (event) => {
@@ -19,7 +19,9 @@ class RegisterPage extends Component {
         payload: {
           username: this.state.username,
           password: this.state.password,
-          dob: this.state.dob
+          dob: this.state.dob,
+          sign: this.state.sign,
+          zip: this.state.zip
         },
       });
     } else {
@@ -80,7 +82,7 @@ class RegisterPage extends Component {
               />
             </label>
             </div>
-          {/* <div>
+          <div>
             <label htmlFor="sign">              
               Zodiac Sign:
               <select value={this.state.sign}
@@ -100,9 +102,20 @@ class RegisterPage extends Component {
                 <option value="12">Sagittarius (Nov 23-Dec 21)</option>
               </select>
             </label>
-              
+            <br></br>
             
-          </div> */}
+            <div>
+            <label htmlFor="zip">
+              zip:
+              <input
+                type="zip"
+                name="zip"
+                value={this.state.zip}
+                onChange={this.handleInputChangeFor('zip')}
+              />
+            </label>  
+          </div>    
+          </div>
           <div>
             <input
               className="register"

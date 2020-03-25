@@ -29,13 +29,12 @@ router.get('/all', (req, res) => {
 router.post('/register', (req, res, next) => {  
   const username = req.body.username;
   const password = encryptLib.encryptPassword(req.body.password);
-  const dob = req.body.dob
-  // const dob = req.body.dob;
-  // const zip = req.body.zip;
-  // const profile_description = req.body.profile_description;
+  const dob = req.body.dob; 
+  const sign = req.body.sign;
+  const zip = req.body.zip;
 
-  const queryText = 'INSERT INTO "user" (username, password, dob) VALUES ($1, $2, $3) RETURNING id';
-  pool.query(queryText, [username, password, dob])
+  const queryText = 'INSERT INTO "user" (username, password, dob, sign, zip) VALUES ($1, $2, $3, $4, $5) RETURNING id';
+  pool.query(queryText, [username, password, dob, sign, zip])
     .then(() => res.sendStatus(201))
     .catch(() => res.sendStatus(500));
 });
