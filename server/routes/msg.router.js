@@ -8,8 +8,8 @@ const router = express.Router();
  * to everyone, not just the selected users
  */
 router.get('/:id', (req, res) => {
-    console.log('in get messages',req.params.id);
-    let queryText = `SELECT m.message_text, c.sender_id, c.recipient_id FROM conversations c
+    console.log('in get messages', req.params.id);
+    let queryText = `SELECT m.message_text, c.sender_id, c.recipient_id, u1.username FROM conversations c
     JOIN "user" u1 on u1.id = c.recipient_id
     JOIN "user" u2 on u2.id = c.sender_id
     JOIN messages m on m.id = c.message_id

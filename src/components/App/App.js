@@ -13,7 +13,7 @@ import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
-import AboutPage from '../AllUsers/AllUsers';
+import AllUsers from '../AllUsers/AllUsers';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../MatchedUsers/MatchedUsers';
 import ChatMessages from '../ChatMessages/ChatMessages';
@@ -34,12 +34,12 @@ class App extends Component {
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
             <Redirect exact from="/" to="/home" />
-            {/* Visiting localhost:3000/about will show the about page.
+            {/* Visiting localhost:3000/allusers will show the list of all registered users.
             This is a route anyone can see, no login necessary */}
             <ProtectedRoute
               exact
-              path="/about"
-              component={AboutPage}
+              path="/allusers"
+              component={AllUsers}
             />
             {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/home will show the UserPage if the user is logged in.

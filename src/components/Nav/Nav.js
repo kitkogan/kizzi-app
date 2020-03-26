@@ -23,7 +23,7 @@ const Nav = (props) => (
             Matches
           </Link>
           
-          <Link className="nav-link" to="/about"> 
+          <Link className="nav-link" to="/allusers"> 
             All Users
           </Link>
           <Link className="nav-link" to="/chatmessages">
