@@ -4,7 +4,8 @@ const router = express.Router();
 
 /**
  * GET route to get the messages from database that matches
- * the selected user IDs.
+ * the selected user IDs. I thought this was working but now it is showing the messages
+ * to everyone, not just the selected users
  */
 router.get('/:id', (req, res) => {
     console.log('in get messages',req.params.id);

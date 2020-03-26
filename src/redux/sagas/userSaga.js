@@ -24,11 +24,13 @@ function* fetchUser() {
   }
 }
 
+//watches for actions and calls the related function
 function* userSaga() {
   yield takeLatest('FETCH_USER', fetchUser);
   yield takeEvery('GET_USERLIST', getUsers); 
 }
 
+//axios req to set the userlist with response data
 function* getUsers() {
   const userResponse = yield axios.get('api/user/all')
   console.log('users', userResponse);
