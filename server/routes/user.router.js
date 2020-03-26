@@ -15,7 +15,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 //returns the list of all users
 router.get('/all', (req, res) => {
   console.log('in get', req.user.username);
-  // const username = req.body.username
+
   const queryText = 'SELECT * FROM "user";';
   pool.query(queryText)
   .then((result) => {res.send(result.rows)})

@@ -7,32 +7,32 @@ CREATE TABLE "user" (
     "id" SERIAL PRIMARY KEY,
     "username" VARCHAR (80) UNIQUE NOT NULL,
     "password" VARCHAR (1000) NOT NULL,
-    -- "dob" DATE NOT NULL,
-    -- "zip" VARCHAR (5) NOT NULL,
-    -- "profile_description" VARCHAR (1000)
+    "dob" DATE NOT NULL,
+    "zip" VARCHAR (5) NOT NULL,
+    "profile_description" VARCHAR (1000)
 );
 
 -- starter dummy data
 INSERT INTO "user" (
     "username",
     "password", 
-    "dob"
-    -- "sign",
-    -- "zip", 
-    -- "profile_description"
+    "dob",
+    "sign",
+    "zip", 
+    "profile_description"
     )
 VALUES (
     'kit', 
-    '1234' 
-    -- '04/29/1984', 
-    -- '55409', 
-    -- 'snuggling a cat and listening to techno are two of my favorite things.'
+    '1234', 
+    '04/29/1984', 
+    '55409', 
+    'snuggling a cat and listening to techno are two of my favorite things.'
     ),
     ('the_butchelor', 
-    '1234'
-    -- '01/23/1983', 
-    -- '98661', 
-    -- 'Handsome, genderqueer Butchelor hoping to marry rich. Must love cats.'
+    '1234',
+    '01/23/1983', 
+    '98661', 
+    'Handsome, genderqueer Butchelor hoping to marry rich. Must love cats.'
     );
 
 -- DROP TABLE "user";

@@ -3,7 +3,8 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 /**
- * GET route template
+ * GET route to get the messages from database that matches
+ * the selected user IDs.
  */
 router.get('/:id', (req, res) => {
     console.log('in get messages',req.params.id);
@@ -23,7 +24,7 @@ router.get('/:id', (req, res) => {
 });
 
 /**
- * POST route template
+ * POST route for new messages, need to add db query still
  */
 router.post('/newMessage', (req, res) => {
  console.log('in new message post')

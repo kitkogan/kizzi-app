@@ -1,3 +1,4 @@
+//sets state for the user list from userSaga
 const userlistReducer = (state = [], action) => {
     switch (action.type) {
         case 'SET_USERLIST':

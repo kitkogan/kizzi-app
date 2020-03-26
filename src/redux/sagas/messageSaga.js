@@ -1,12 +1,14 @@
 import axios from 'axios';
 import { put, takeEvery } from 'redux-saga/effects';
-// import {connect} from 'react-redux';
 
+//triggered from the conversations component
+//to get all of the conversation messages by user ids
 function* messageSaga() {
     yield takeEvery('GET_MSG', getConvo);
   }
 
-
+  //triggered by the messageSaga generator function
+  //sets state for messages
 function* getConvo(action) {  
   console.log('logging action payload from getConvo', action.payload);
   

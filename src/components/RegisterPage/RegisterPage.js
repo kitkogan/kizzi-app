@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 
+//what user sees when they register
 class RegisterPage extends Component {
   state = {
     username: '',
@@ -10,10 +11,12 @@ class RegisterPage extends Component {
     zip: ''
   };
 
+//checks to make sure all required fields have input 
+//throws error if fields are not filled
   registerUser = (event) => {
     event.preventDefault();
 
-    if (this.state.username && this.state.password) {
+    if (this.state.username && this.state.password && this.state.dob && this.state.sign && this.state.zip) {
       this.props.dispatch({
         type: 'REGISTER',
         payload: {
@@ -29,12 +32,15 @@ class RegisterPage extends Component {
     }
   } // end registerUser
 
+  //handles change on the form inputs
   handleInputChangeFor = propertyName => (event) => {
     this.setState({
       [propertyName]: event.target.value,
     });
   }
 
+  //renders an alert to the user if there is a registration error
+  //holds the registration form elements
   render() {
     return (
       <div>
