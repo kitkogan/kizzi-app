@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import EditProfileButton from '../EditProfileButton/EditProfileButton';
+import './UserPage.css'
 // this could also be written with destructuring parameters as:
 // const UserPage = ({ user }) => (
 // and then instead of `props.user.username` you could use `user.username`
@@ -16,9 +17,9 @@ const UserPage = (props) => (
       Welcome, { props.user.username }!
       <br></br>
     </h1> 
-    <image src="/assets/"></image>
+    <img src='./images/kit_rulz.jpg' className='profilePic' alt='nonbinary femme playing guitar'/>
     <p>{props.user.description}</p>
-    <p>sign: {props.user.sign_name}</p>
+    <p>sign: Taurus</p>
     <p>zip code: {props.user.zip}</p>
     
     {/* <h2> */}
