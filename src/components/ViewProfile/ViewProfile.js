@@ -9,6 +9,7 @@ class ViewProfile extends Component {
 
     //gets the profile of selcted user
     getProfile() {
+        console.log('this should be an id', this.props.id);
         this.props.dispatch({ type: 'GET_ONE_USER', payload: this.props.id })
     }
 

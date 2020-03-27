@@ -40,7 +40,11 @@ class Conversation extends Component {
     //the event handler for the sent message action
     handleSentMessage = (event) => {
         event.preventDefault();
-        console.log('sent message');
+        console.log('sent message', this.state.newMessage);
+
+        // TODO 
+        // dispatch an action to MESSAGE saga, payload = this.state.newMessage
+
         this.setState({
             newMessage: {
                 message_text: '',
@@ -48,7 +52,6 @@ class Conversation extends Component {
                 timestamp: ''
             }
         });
-       
     }
 
     //renders the messages to the chat screen for messages

@@ -39,6 +39,24 @@ class AllUsers extends Component {
   }
 } 
 
+//expand match logic here (probably need to work into the map abnove)
+// if good match show 💖
+// if ok match show 👍
+//if bad match show 🚫
+
+//symbols for each sign
+//aries ♈︎
+//taurus ♉︎
+//gemini ♊︎
+//cancer ♋︎
+//leo ♌︎
+//virgo ♍︎
+//libra ♎︎
+//scorpio ♏︎
+//sagittarius ♐︎
+//capricorn ♑︎
+//aquarius ♒︎
+//pisces ♓︎
 const mapReduxStateToProps = (reduxState) => ({
   reduxState
 });

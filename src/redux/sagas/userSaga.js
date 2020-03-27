@@ -31,6 +31,8 @@ function* fetchUser() {
 }
 
 function* getProfile(action) {
+  console.log("this should equal an id)", action.payload);
+  console.log("You're doing awesome!!!!");
     //runs GET call to server then updates redux state with specific movie requested
     const response = yield axios.get(`api/user/viewProfile/${action.payload}`);
     try{
@@ -43,8 +45,9 @@ function* getProfile(action) {
 
 //axios req to set the userlist with response data
 function* getUsers() {
-  const userResponse = yield axios.get('api/user/all')
-  console.log('users', userResponse);
+  
+  const userResponse = yield axios.get('api/user/allusers');
+  console.log('get all users', userResponse);
   yield put({
     type: 'SET_USERLIST',
     payload: userResponse.data

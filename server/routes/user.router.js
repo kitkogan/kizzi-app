@@ -13,7 +13,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 });
 
 //returns the list of all users
-router.get('/all', (req, res) => {
+router.get('/allusers', (req, res) => {
   console.log('in get', req.user.username);
 
   const queryText = 'SELECT * FROM "user";';
@@ -26,12 +26,14 @@ router.get('/all', (req, res) => {
 
 //get req to view the user profile that was selected
 router.get('/viewProfile/:id', (req, res)=>{
+  console.log("user id", req.user.id);
+  console.log("user id", req.params.id);
   //call to get info from DB for user that was selected
   let queryText = `SELECT "user"."id" "userid","user"."username", "user"."dob", "user"."description", 
   "user"."zip", "zodiac"."sign_name" 
   FROM "user" JOIN "zodiac" 
   ON "user"."sign" = "zodiac"."id" WHERE "user".id = $1`;
-  pool.query(queryText, [req.params.id])
+  pool.query(queryText, [req.user.id])
   .then((result)=>{
       //sends back the user results packaged in an object
       res.send(result.rows[0]);

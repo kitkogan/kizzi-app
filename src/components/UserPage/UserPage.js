@@ -15,10 +15,12 @@ const UserPage = (props) => (
     <h1 id="welcome">
       Welcome, { props.user.username }!
       <br></br>
-      
-    </h1>
+    </h1> 
+    <image src="/assets/"></image>
+    <p>{props.user.description}</p>
+    <p>sign: {props.user.sign_name}</p>
     <p>zip code: {props.user.zip}</p>
-    <p>sign: {props.user.sign}</p>
+    
     {/* <h2> */}
       {/* {props.user.description}</h2> */}
     {/* <p>Your ID is: {props.user.id}</p> */}
