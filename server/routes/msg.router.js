@@ -28,7 +28,19 @@ router.get('/:id', (req, res) => {
  * POST route for new messages, need to add db query still
  */
 router.post('/newMessage', (req, res) => {
- console.log('in new message post')
+    let newMessage = req.body;
+    console.log(`Adding message:`, newMessage);
+    
+    let queryText = `INSERT INTO "messages" ("message_text", "sender_id", "timestamp")
+                        VALUES ($1, $2, $3);`;
+    pool.query(queryText, [newMessages.message_text, newMessage.sender_id, newMessage.timestamp])
+        .then(result => {
+        res.sendStatus(201);
+        })
+        .catch(error => {
+        console.log(`Error adding a new treat`, error);
+        res.sendStatus(500);
+        });
 });
 
 module.exports = router;

@@ -7,7 +7,9 @@ import {connect} from 'react-redux';
 class Conversation extends Component {
     state = {
         newMessage: {
-            id: '', username: '', message: ''
+            message_text: '',
+            sender_id: '',
+            timestamp: ''
         }
     }
 
@@ -41,7 +43,9 @@ class Conversation extends Component {
         console.log('sent message');
         this.setState({
             newMessage: {
-                id: '', username: '', message: ''
+                message_text: '',
+                sender_id: '',
+                timestamp: ''
             }
         });
        
@@ -56,16 +60,12 @@ class Conversation extends Component {
             <>
                  <ul>
                     {this.props.reduxState.msg.map((message) => {
-                    return (<li key={message.id}>{message.message_text}
+                    return (<li key={message.id}><br></br>{message.message_text}<br></br>{message.username}{message.timestamp}
                     </li>);
                     })}
-                    {/* <li>TEST</li> */}
+
                  </ul>
-                {/* <ul>{this.state.messageList.map(convo => 
-                    <li key={convo.id}>
-                    {convo.username} : {convo.message} </li>
-                    )}
-                </ul> */}
+              
    
                 
                 {/* <div className='convoDiv'>
@@ -77,13 +77,14 @@ class Conversation extends Component {
                     <div className='recieverDiv'>
                         <p>receiver name</p>
                         <p>date,time</p>
-                        <p>{this.state.newMessage.message}</p>
-                    </div> */}
+                        <p>{this.state.newMessage.message}</p> */}
+                    {/* </div> */}
                    <div>
                     <input value={this.state.newMessage.message} placeholder='type a message' onChange={(event) => this.handleMessageChange(event, 'message')} />
-                    <button type='submit' onClick={this.handleSentMessage} className="sentMessageButton">Send</button>
+                    <button type='submit' onClick={this.handleSentMessage} className="sentMessageButton">Send</button></div>
+                        
 
-                </div>    
+                {/* </div>     */}
             </> 
         )   
     }
