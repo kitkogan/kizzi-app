@@ -7,9 +7,9 @@ import React from 'react';
 
 const ChatMessages = () => (
   <div>
-    <p>
-      Chat Message Thread List will appear here
-    </p>
+    <ul>
+      <li>the_butchelor <button className='view-profile'>View Profile</button><button className='send-message'>View Messages</button><button className='delete-block-user'>BLOCK</button></li>
+    </ul>
   </div>
 );
 

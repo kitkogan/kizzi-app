@@ -32,7 +32,7 @@ class AllUsers extends Component {
       <ul>
         {this.props.reduxState.userlist.map((user) => {
           return (<li key={user.id}>{user.username}
-          <button className="viewProfile" onClick={this.toViewProfilePage}>View Profile</button><button onClick={this.sendMessage}>Send Message</button><button onClick={this.removeUser}>BLOCK</button></li>);
+          <button className="view-profile" onClick={this.toViewProfilePage}>View Profile</button><button onClick={this.sendMessage} className='send-message'>Send Message</button><button onClick={this.removeUser} className='delete-block-user'>BLOCK</button></li>);
         })}
       </ul>
     )
