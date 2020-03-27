@@ -21,13 +21,18 @@ class AllUsers extends Component {
     this.props.history.push('/conversation');
   }
 
+  //when the 'view profile' button is clicked, the user is router to the 'ViewProfile' component
+  toViewProfilePage = (id) => {
+    console.log('profile');
+    this.props.history.push(`/viewProfile/${id}`);
+  }
   //renders the user list and dynamically appends a 'send message' button and 'block' button (which will function as a delete)
   render() {
     return (
       <ul>
         {this.props.reduxState.userlist.map((user) => {
           return (<li key={user.id}>{user.username}
-          <button onClick={this.sendMessage}>Send Message</button><button onClick={this.removeUser}>BLOCK</button></li>);
+          <button className="viewProfile" onClick={this.toViewProfilePage}>View Profile</button><button onClick={this.sendMessage}>Send Message</button><button onClick={this.removeUser}>BLOCK</button></li>);
         })}
       </ul>
     )

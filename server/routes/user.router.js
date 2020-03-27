@@ -23,6 +23,23 @@ router.get('/all', (req, res) => {
   .catch((err) => res.sendStatus(500));
   
 });
+
+//get req to view the user profile that was selected
+router.get('/viewProfile/:id', (req, res)=>{
+  //call to get info from DB for user that was selected
+  let queryText = `SELECT "user"."id" "userid","user"."username", "user"."dob", "user"."description", 
+  "user"."zip", "zodiac"."sign_name" 
+  FROM "user" JOIN "zodiac" 
+  ON "user"."sign" = "zodiac"."id" WHERE "user".id = $1`;
+  pool.query(queryText, [req.params.id])
+  .then((result)=>{
+      //sends back the user results packaged in an object
+      res.send(result.rows[0]);
+  }).catch((error)=>{
+      console.log('error getting user', error);
+      res.sendStatus(500);
+  })
+})
 // Handles POST request with new user data
 // The only thing different from this and every other post we've seen
 // is that the password gets encrypted before being inserted

@@ -1,6 +1,12 @@
 import axios from 'axios';
 import { put, takeLatest, takeEvery } from 'redux-saga/effects';
 
+//watches for actions and calls the related function
+function* userSaga() {
+  yield takeLatest('FETCH_USER', fetchUser);
+  yield takeEvery('GET_USERLIST', getUsers);
+  yield takeEvery('GET_ONE_USER', getProfile); 
+}
 // worker Saga: will be fired on "FETCH_USER" actions
 function* fetchUser() {
   try {
@@ -24,11 +30,16 @@ function* fetchUser() {
   }
 }
 
-//watches for actions and calls the related function
-function* userSaga() {
-  yield takeLatest('FETCH_USER', fetchUser);
-  yield takeEvery('GET_USERLIST', getUsers); 
-}
+function* getProfile(action) {
+    //runs GET call to server then updates redux state with specific movie requested
+    const response = yield axios.get(`api/user/viewProfile/${action.payload}`);
+    try{
+      console.log('user profile', response);
+      yield put({type: 'SET_ONE_USER', payload: response.data});
+  } catch(error){
+      console.log('error getting this one user profile', error);
+  }
+};
 
 //axios req to set the userlist with response data
 function* getUsers() {
