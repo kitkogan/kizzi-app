@@ -23,6 +23,11 @@ import EditProfile from '../EditProfile/EditProfile';
 import './App.css';
 
 class App extends Component {
+
+  // state = {
+  //   currentUser: // put redux state here (prevProps?)
+  // }
+
   componentDidMount () {
     this.props.dispatch({type: 'FETCH_USER'})
   }
@@ -30,6 +35,7 @@ class App extends Component {
   render() {
     return (
       <Router>
+        {JSON.stringify(this.props.reduxState.user)}
         <div>
           <Nav />
           <Switch>
@@ -75,7 +81,7 @@ class App extends Component {
             />
             <ProtectedRoute
               exact
-              path="/editProfile"
+              path="/editProfile/:id"
               component={EditProfile}
             />
             {/* If none of the other routes matched, we will show a 404. */}
@@ -86,5 +92,9 @@ class App extends Component {
       </Router>
   )}
 }
+const mapReduxStateToProps = (reduxState) => ({
+  reduxState
+});
 
-export default connect()(App);
+export default connect(mapReduxStateToProps)(App);
+

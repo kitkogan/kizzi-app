@@ -9,13 +9,13 @@ class EditProfile extends Component {
     newUsername: '',
     newDescription: '',
     newZip: '',
-    userId: this.props.user.id
+    // userId: this.props.user.id
   }
-  componentDidMount = ()=>{
-      console.log('in component did mount edit profile', this.user.id)
-     //dispatch to saga to then run get request and store in Redux
-    this.props.dispatch({ type: 'GET_ONE_USER', payload: this.user.id });
-  }
+  // componentDidMount = ()=>{
+  //     console.log('in component did mount edit profile', this.user.id)
+  //    //dispatch to saga to then run get request and store in Redux
+  //   this.props.dispatch({ type: 'GET_ONE_USER', payload: this.user.id });
+  // }
 
   componentDidUpdate = (prevProps)=>{
     //when redux props update this will compare previous redux state to current and run accordingly

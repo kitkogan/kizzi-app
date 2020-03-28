@@ -29,15 +29,18 @@ class AllUsers extends Component {
 
   removeUser = (id) => {
     console.log('in delete user')
-    this.props.dispatch({type: 'DELETE_USER'})
+    this.props.dispatch({type: 'DELETE_USER', payload: id})
   }
+
   //renders the user list and dynamically appends a 'send message' button and 'block' button (which will function as a delete)
   render() {
     return (
       <ul>
         {this.props.reduxState.userlist.map((user) => {
           return (<li key={user.id}>{user.username}
-          <button className="view-profile" onClick={this.toViewProfilePage}>View Profile</button><button onClick={this.sendMessage} className='send-message'>Send Message</button><button onClick={this.removeUser} className='delete-block-user'>BLOCK</button></li>);
+          <button className="view-profile" onClick={() =>this.toViewProfilePage(user.id)}>View Profile</button>
+          <button onClick={this.sendMessage} className='send-message'>Send Message</button>
+          <button onClick={() => this.removeUser(user.id)} className='delete-block-user'>BLOCK</button></li>);
         })}
       </ul>
     )

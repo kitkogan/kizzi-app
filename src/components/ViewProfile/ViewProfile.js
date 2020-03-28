@@ -3,15 +3,15 @@ import {connect} from 'react-redux';
 
 class ViewProfile extends Component {
     
-    componentDidMount() {
-        this.getProfile();
-    }
+    // componentDidMount() {
+    //     this.getProfile();
+    // }
 
-    //gets the profile of selcted user
-    getProfile(action) {
-        console.log('this should be an id', action.payload);
-        this.props.dispatch({ type: 'GET_ONE_USER', payload: action.payload })
-    }
+    // // gets the profile of selcted user
+    // getProfile() {
+    //     console.log('this should be an id', user.id);
+    //     this.props.dispatch({ type: 'GET_ONE_USER', payload: user.id })
+    // }
 
     //go back to all users page when back button is clicked
     buttonClickBack = ()=>{
@@ -22,6 +22,7 @@ class ViewProfile extends Component {
         // let user = this.props.reduxState.oneUser;
         return(
             <div className="viewUserProfile">
+                {JSON.stringify(this.props.match.id)}
             <button className='back-to-list' onClick={this.buttonClickBack}>BACK TO LIST</button>
             {/* <button onClick={()=>{this.buttonClickEdit(this.props.match.params.id)}}>EDIT</button> */}
             

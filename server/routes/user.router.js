@@ -97,7 +97,7 @@ router.delete('/:id', (req, res) => {
   let reqId = req.params.id;
   console.log('delete request for id', reqId);
   let sqlText = `DELETE FROM "user" WHERE id=$1;`;
-  pool.query(sqlText, [req.id])
+  pool.query(sqlText, [reqId])
     .then((result) => {
       console.log('user deleted');
       res.sendStatus(200);

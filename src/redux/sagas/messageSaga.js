@@ -12,11 +12,13 @@ function* messageSaga() {
 // create function* sendMsg
 // make an axios POST request to update the message database (with the conversation id)
 function* sendMsg(action) {
+
+  console.log('action:', action);
   
     try {
-        yield axios.post(`/api/messages/${action.payload}`, action.payload);
+        yield axios.post(`/api/messages`, action.payload);
         console.log('logging action payload from sendMsg', action.payload);
-        yield put({ type: 'GET_MSG' });
+        yield put({ type: 'GET_MSG', payload: 2 });
     } catch (error) {
         console.log('error posting new message', error);
     }    

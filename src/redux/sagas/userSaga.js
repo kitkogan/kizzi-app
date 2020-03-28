@@ -69,7 +69,7 @@ function* updateProfile(action) {
 function* removeUser(id) {
   //runs delete request to server to remove selected user
     try{
-      yield axios.delete(`/api/user/${id}`);
+      yield axios.delete(`/api/user/${id.payload}`);
       console.log('in remove user');
   } catch(error){
       console.log('error updating user information');

@@ -31,9 +31,9 @@ router.post('/', (req, res) => {
     let newMessage = req.body;
     console.log(`Adding message:`, newMessage);
     
-    let queryText = `INSERT INTO "messages" ("message_text", "sender_id", "timestamp")
-                        VALUES ($1, $2, $3);`;
-    pool.query(queryText, [newMessage.message_text, newMessage.sender_id, newMessage.timestamp])
+    let queryText = `INSERT INTO "messages" ("message_text")
+                        VALUES ($1);`;
+    pool.query(queryText, [newMessage.message_text])
         .then(result => {
         res.sendStatus(201);
         })
