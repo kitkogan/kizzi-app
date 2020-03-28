@@ -33,10 +33,10 @@ function* fetchUser() {
 }
 
 function* getProfile(action) {
-  console.log("this should equal an id)", action.payload);
+  console.log("this should equal an id", action.payload);
   console.log("You're doing awesome!!!!");
     //runs GET call to server then updates redux state with specific movie requested
-    const response = yield axios.get(`api/user/viewProfile/${action}`);
+    const response = yield axios.get(`api/user/viewProfile/${action.payload}`);
     try{
       console.log('user profile', response);
       yield put({type: 'SET_ONE_USER', payload: response.data});
