@@ -5,7 +5,9 @@ import { put, takeLatest, takeEvery } from 'redux-saga/effects';
 function* userSaga() {
   yield takeLatest('FETCH_USER', fetchUser);
   yield takeEvery('GET_USERLIST', getUsers);
-  yield takeEvery('GET_ONE_USER', getProfile); 
+  yield takeEvery('GET_ONE_USER', getProfile);
+  yield takeEvery('UPDATE_PROFILE', updateProfile); 
+  yield takeEvery('DELETE_USER', removeUser);
 }
 // worker Saga: will be fired on "FETCH_USER" actions
 function* fetchUser() {
@@ -34,7 +36,7 @@ function* getProfile(action) {
   console.log("this should equal an id)", action.payload);
   console.log("You're doing awesome!!!!");
     //runs GET call to server then updates redux state with specific movie requested
-    const response = yield axios.get(`api/user/viewProfile/${action.payload}`);
+    const response = yield axios.get(`api/user/viewProfile/${action}`);
     try{
       console.log('user profile', response);
       yield put({type: 'SET_ONE_USER', payload: response.data});
@@ -52,6 +54,26 @@ function* getUsers() {
     type: 'SET_USERLIST',
     payload: userResponse.data
   })
+}
+
+function* updateProfile(action) {
+  //runs POST request to server to update  and description
+    try{
+      yield axios.post(`/api/user/editProfile/${action.payload}`, action.payload);
+      console.log('in update user', action.payload);
+  } catch(error){
+      console.log('error updating user information');
+  }
+}
+
+function* removeUser(id) {
+  //runs delete request to server to remove selected user
+    try{
+      yield axios.delete(`/api/user/${id}`);
+      console.log('in remove user');
+  } catch(error){
+      console.log('error updating user information');
+  }
 }
 
 export default userSaga;

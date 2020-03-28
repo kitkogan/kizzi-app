@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
-import EditProfileButton from '../EditProfileButton/EditProfileButton';
 import './UserPage.css'
 // this could also be written with destructuring parameters as:
 // const UserPage = ({ user }) => (
@@ -25,7 +24,7 @@ const UserPage = (props) => (
     {/* <h2> */}
       {/* {props.user.description}</h2> */}
     {/* <p>Your ID is: {props.user.id}</p> */}
-    <EditProfileButton className="edit-profile" />
+    <button className='edit-profile' onClick={() => {props.history.push(`/editProfile/${props.user.id}`)}}>Edit Profile</button> 
     <LogOutButton className="log-in" />
   </div>
 );

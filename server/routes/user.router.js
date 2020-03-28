@@ -12,6 +12,26 @@ router.get('/', rejectUnauthenticated, (req, res) => {
   res.send(req.user);
 });
 
+// handles request to update user orofile information
+router.post('/editProfile', (req, res)=>{
+  //call to update title and description from DB for movie selected to edit
+  let updates = req.body;
+  let queryText = `UPDATE "user" SET "username" = $1, "description" = $2, "zip" = $3 WHERE "id" = $4`;
+  let queryValues = [
+      updates.newUsername,
+      updates.newDescription,
+      updates.newZip,
+      updates.userId
+  ];
+  pool.query(queryText, queryValues).then((results)=>{
+      console.log(results)
+      res.sendStatus(200)
+  }).catch((error)=>{
+      console.log('error updating user info', error);
+      res.sendStatus(500);
+  })
+})
+
 //returns the list of all users
 router.get('/allusers', (req, res) => {
   console.log('in get', req.user.username);
@@ -72,5 +92,20 @@ router.post('/logout', (req, res) => {
   req.logout();
   res.sendStatus(200);
 });
+
+router.delete('/:id', (req, res) => {
+  let reqId = req.params.id;
+  console.log('delete request for id', reqId);
+  let sqlText = `DELETE FROM "user" WHERE id=$1;`;
+  pool.query(sqlText, [req.id])
+    .then((result) => {
+      console.log('user deleted');
+      res.sendStatus(200);
+    })
+    .catch((err) => {
+      console.log('error deleting user', err);
+      res.sendStatus(500);
+    })
+})
 
 module.exports = router;

@@ -26,6 +26,11 @@ class AllUsers extends Component {
     console.log('profile');
     this.props.history.push(`/viewProfile/${id}`);
   }
+
+  removeUser = (id) => {
+    console.log('in delete user')
+    this.props.dispatch({type: 'DELETE_USER'})
+  }
   //renders the user list and dynamically appends a 'send message' button and 'block' button (which will function as a delete)
   render() {
     return (

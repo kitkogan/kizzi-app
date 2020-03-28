@@ -5,12 +5,22 @@ import { put, takeEvery } from 'redux-saga/effects';
 //to get all of the conversation messages by user ids
 function* messageSaga() {
     yield takeEvery('GET_MSG', getConvo);
-    // create one for SEND_MSG, sendMsg
+    yield takeEvery('ADD_MSG', sendMsg);
   }
 
 // TODO 
 // create function* sendMsg
 // make an axios POST request to update the message database (with the conversation id)
+function* sendMsg(action) {
+  
+    try {
+        yield axios.post(`/api/messages/${action.payload}`, action.payload);
+        console.log('logging action payload from sendMsg', action.payload);
+        yield put({ type: 'GET_MSG' });
+    } catch (error) {
+        console.log('error posting new message', error);
+    }    
+}
 
   //triggered by the messageSaga generator function
   //sets state for messages

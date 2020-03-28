@@ -44,7 +44,7 @@ CREATE TABLE "messages" (
 	"id" SERIAL PRIMARY KEY,
     "sender_id" INT REFERENCES "user",
 	"message_text" VARCHAR (1000) NOT NULL,
-    "timestamp" TIME
+    "timestamp" TIME,
 	);
 -- create a conversation_id reference column
 
@@ -57,8 +57,19 @@ CREATE TABLE "conversations" (
 	);
 -- remove message_ id column
 
+-- CREATE TABLE "conversations" (
+-- 	"id" SERIAL PRIMARY KEY,
+-- 	"sender_id" INT REFERENCES "user",
+-- 	"recipient_id" INT REFERENCES "user"
+-- 	);
 
-
+-- CREATE TABLE "messages" (
+-- 	"id" SERIAL PRIMARY KEY,
+--     "sender_id" INT REFERENCES "user",
+-- 	"message_text" VARCHAR (1000) NOT NULL,
+--     "timestamp" TIME,
+--     "convo_id" INT REFERENCES "threads"
+-- 	);
 
 
 

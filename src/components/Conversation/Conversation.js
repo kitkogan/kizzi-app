@@ -40,18 +40,19 @@ class Conversation extends Component {
     //the event handler for the sent message action
     handleSentMessage = (event) => {
         event.preventDefault();
-        console.log('sent message', this.state.newMessage);
+        console.log('sent message', this.state);
+        this.props.dispatch({type: 'ADD_MSG', payload: this.state.newMessage})
 
         // TODO 
         // dispatch an action to MESSAGE saga, payload = this.state.newMessage
 
-        this.setState({
-            newMessage: {
-                message_text: '',
-                sender_id: '',
-                timestamp: ''
-            }
-        });
+        // this.setState({
+        //     newMessage: {
+        //         message_text: '',
+        //         sender_id: '',
+        //         timestamp: ''
+        //     }
+        // });
     }
 
     //renders the messages to the chat screen for messages
@@ -84,7 +85,8 @@ class Conversation extends Component {
                     {/* </div> */}
                    <div>
                     <input value={this.state.newMessage.message} placeholder='type a message' onChange={(event) => this.handleMessageChange(event, 'message')} />
-                    <button type='submit' onClick={this.handleSentMessage} className="sentMessageButton">Send</button></div>
+                    <button type='submit' onClick={this.handleSentMessage} className="send-message
+                    ">Send</button></div>
                         
 
                 {/* </div>     */}
