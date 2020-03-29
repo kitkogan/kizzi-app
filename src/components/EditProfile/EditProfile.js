@@ -54,7 +54,7 @@ class EditProfile extends Component {
   render() {
     return (
       <div className="Edit">
-        {JSON.stringify(this.state)}
+        {/* {JSON.stringify(this.state)} */}
         <button className="cancel" onClick={this.goBack}>CANCEL</button>
         <button className="save" onClick={() => this.handleSave(this.state)}>SAVE CHANGES</button>
         <br></br>

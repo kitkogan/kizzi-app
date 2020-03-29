@@ -22,7 +22,7 @@ class ViewProfile extends Component {
         // let user = this.props.reduxState.oneUser;
         return(
             <div className="viewUserProfile">
-                {/* {JSON.stringify(this.props.reduxState.oneUser)} */}
+                {JSON.stringify(this.props.reduxState.oneUser)}
 
                 {/* <ul>
                     {this.props.reduxState.oneUser.map((user) => {

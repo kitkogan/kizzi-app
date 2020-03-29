@@ -2,20 +2,23 @@
     display: grid;
     margin: 0px auto;
     padding: 5px;
-    height: 400px;
-	width: 600px;
+    height: 620px;
+    width: 800px;
+    
 }
 
-.sender {
-    float: right;
-    height: 400px;
+.senderDiv {
+    /* float: right; */
+    height: 100px;
     width: 48%;
     text-align: right;
+    background-color: rgb(65, 16, 62);
+   
 }
 
-.receiver {
-    float: left;
-    height: 400px;
+.receiverDiv {
+    /* float: left; */
+    height: 100px;
     width: 48%;
     text-align: left;
 }

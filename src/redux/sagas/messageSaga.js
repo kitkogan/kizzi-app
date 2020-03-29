@@ -18,7 +18,7 @@ function* sendMsg(action) {
     try {
         yield axios.post(`/api/messages`, action.payload);
         console.log('logging action payload from sendMsg', action.payload);
-        yield put({ type: 'GET_MSG', payload: 2 });
+        yield put({ type: 'GET_MSG', payload: action.payload });
     } catch (error) {
         console.log('error posting new message', error);
     }    

@@ -40,21 +40,21 @@ VALUES (
 
 -- SELECT * FROM "user";
 
-CREATE TABLE "messages" (
-	"id" SERIAL PRIMARY KEY,
-    "sender_id" INT REFERENCES "user",
-	"message_text" VARCHAR (1000) NOT NULL,
-    "timestamp" TIME,
-	);
+-- CREATE TABLE "messages" (
+-- 	"id" SERIAL PRIMARY KEY,
+--     "sender_id" INT REFERENCES "user",
+-- 	"message_text" VARCHAR (1000) NOT NULL,
+--     "timestamp" TIME,
+-- 	);
 -- create a conversation_id reference column
 
 	
-CREATE TABLE "conversations" (
-	"id" SERIAL PRIMARY KEY,
-	"sender_id" INT REFERENCES "user",
-	"recipient_id" INT REFERENCES "user",
-	"message_id" INT REFERENCES "messages"
-	);
+-- CREATE TABLE "conversations" (
+-- 	"id" SERIAL PRIMARY KEY,
+-- 	"sender_id" INT REFERENCES "user",
+-- 	"recipient_id" INT REFERENCES "user",
+-- 	"message_id" INT REFERENCES "messages"
+-- 	);
 -- remove message_ id column
 
 CREATE TABLE "zodiac" (
@@ -62,6 +62,7 @@ CREATE TABLE "zodiac" (
     "sign_name" VARCHAR,
     "sign_description" VARCHAR
     );
+    
     INSERT INTO "zodiac"("sign_name")
     VALUES (
         'Capricorn',
@@ -77,20 +78,20 @@ CREATE TABLE "zodiac" (
         'Scorpio',
         'Sagittarius'
         );
-        
--- CREATE TABLE "conversations" (
--- 	"id" SERIAL PRIMARY KEY,
--- 	"sender_id" INT REFERENCES "user",
--- 	"recipient_id" INT REFERENCES "user"
--- 	);
 
--- CREATE TABLE "messages" (
--- 	"id" SERIAL PRIMARY KEY,
---     "sender_id" INT REFERENCES "user",
--- 	"message_text" VARCHAR (1000) NOT NULL,
---     "timestamp" TIME,
---     "convo_id" INT REFERENCES "threads"
--- 	);
+CREATE TABLE "conversations" (
+	"id" SERIAL PRIMARY KEY,
+	"user1" INT REFERENCES "user",
+	"user2" INT REFERENCES "user"
+	);
+
+CREATE TABLE "messages" (
+	"id" SERIAL PRIMARY KEY,
+    "sender_id" INT REFERENCES "user",
+	"message_text" VARCHAR (1000) NOT NULL,
+    "timestamp" TIME,
+    "convo_id" INT REFERENCES "conversations"
+	);
 
 
 

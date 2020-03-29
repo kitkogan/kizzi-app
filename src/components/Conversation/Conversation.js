@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 //not full working, but newMessage sets state for the newly submitted user messages
 //including username, ID, and message text. 
 class Conversation extends Component {
+
     state = {
         newMessage: {
             message_text: '',
@@ -77,24 +78,35 @@ class Conversation extends Component {
               
    
                 
-                {/* <div className='convoDiv'>
+                 <div className='convoDiv'>
                     <div className='senderDiv'>
-                        <p>sender name</p>
-                        <p>date, time</p>
-                        <p>{this.state.newMessage.message}</p>
+                        <p>the_butchelor</p>
+                        <h4>Hey I'm Kyle. We aren't a match <br/>but you seem cool!</h4>
+                        <p>3/29/2020 4:20PM</p>
                     </div>
                     <div className='recieverDiv'>
-                        <p>receiver name</p>
-                        <p>date,time</p>
-                        <p>{this.state.newMessage.message}</p> */}
-                    {/* </div> */}
+                        <p>kit_rulz</p>
+                        <h4>Hey Kyle! Thanks for the message! 
+                            <br/>
+                            I have an important question for you...<br/>Do You like cats?</h4>
+                        <p>3/29/2020 6:34PM</p>
+                        
+                    </div>
+                    <div className='senderDiv'>
+                        <p>the_butchelor</p>
+                        <h4>I've been waiting all my life for <br/>
+                        someone to ask me that!</h4>
+                        <p>3/29/2020 7:17PM</p>
+                        
+                    </div>
+
                    <div>
                     <input value={this.state.newMessage.message_text} placeholder='type a message' onChange={(event) => this.handleMessageChange(event, 'message_text')} />
                     <button type='submit' onClick={(event) =>this.handleSentMessage(event)} className="send-message
                     ">Send</button></div>
                         
 
-                {/* </div>     */}
+                </div>    
             </> 
         )   
     }
