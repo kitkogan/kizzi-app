@@ -71,9 +71,11 @@ class LoginPage extends Component {
               name="submit"
               value="Log In"
             />
+           <img src='./images/astrogif.gif' className='icon'/>
           </div>
         </form>
         <center>
+        
           <button
             type="button"
             className="link-button"
@@ -81,6 +83,7 @@ class LoginPage extends Component {
           >
             Register
           </button>
+          
         </center>
       </div>
     );

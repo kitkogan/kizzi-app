@@ -35,7 +35,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        {JSON.stringify(this.props.reduxState.user)}
+        {/* {JSON.stringify(this.props.reduxState.user)} */}
         <div>
           <Nav />
           <Switch>
@@ -71,7 +71,7 @@ class App extends Component {
             />
             <ProtectedRoute
               exact
-              path="/conversation"
+              path="/conversation/:id"
               component={Conversation}
             />
             <ProtectedRoute

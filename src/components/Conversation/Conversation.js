@@ -62,7 +62,7 @@ class Conversation extends Component {
     render () {
         return (
             <>
-            {JSON.stringify(this.props.reduxState.msg)}
+            {/* {JSON.stringify(this.props.reduxState.msg)} */}
                  <ul>
                     {this.props.reduxState.msg.map((message) => {
                     return (<li key={message.id}>
@@ -90,7 +90,7 @@ class Conversation extends Component {
                     {/* </div> */}
                    <div>
                     <input value={this.state.newMessage.message_text} placeholder='type a message' onChange={(event) => this.handleMessageChange(event, 'message_text')} />
-                    <button type='submit' onClick={this.handleSentMessage} className="send-message
+                    <button type='submit' onClick={(event) =>this.handleSentMessage(event)} className="send-message
                     ">Send</button></div>
                         
 

@@ -38,7 +38,7 @@ VALUES (
 -- DROP TABLE "user";
 
 
-SELECT * FROM "user";
+-- SELECT * FROM "user";
 
 CREATE TABLE "messages" (
 	"id" SERIAL PRIMARY KEY,
@@ -57,6 +57,27 @@ CREATE TABLE "conversations" (
 	);
 -- remove message_ id column
 
+CREATE TABLE "zodiac" (
+    "id" SERIAL PRIMARY KEY,
+    "sign_name" VARCHAR,
+    "sign_description" VARCHAR
+    );
+    INSERT INTO "zodiac"("sign_name")
+    VALUES (
+        'Capricorn',
+        'Aquarius',
+        'Pisces',
+        'Aries',
+        'Taurus',
+        'Gemini',
+        'Cancer',
+        'Leo',
+        'Virgo',
+        'Libra',
+        'Scorpio',
+        'Sagittarius'
+        );
+        
 -- CREATE TABLE "conversations" (
 -- 	"id" SERIAL PRIMARY KEY,
 -- 	"sender_id" INT REFERENCES "user",

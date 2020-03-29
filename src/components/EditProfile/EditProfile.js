@@ -39,9 +39,10 @@ class EditProfile extends Component {
     })
   }
 
-  handleSave = ()=>{
-    //on clicking save: dispatch to saga to trigger post request that will update movie info
+  handleSave = (id)=>{
+    //on clicking save: dispatch to saga to trigger post request that will update user info
     this.props.dispatch({type: 'UPDATE_PROFILE', payload: this.state})
+    console.log('in handle save', id)
     //step back to details page
     this.props.history.goBack();
   }
@@ -55,8 +56,8 @@ class EditProfile extends Component {
   render() {
     return (
       <div className="Edit">
-        <button onClick={this.goBack}>CANCEL</button>
-        <button onClick={this.handleSave}>SAVE CHANGES</button>
+        <button className="cancel" onClick={this.goBack}>CANCEL</button>
+        <button className="save" onClick={() => this.handleSave(this.state)}>SAVE CHANGES</button>
         <br></br>
         <label> Update Username: 
           <input className="username" type="text" value={this.state.newUsername} 
@@ -75,7 +76,7 @@ class EditProfile extends Component {
           <textarea className="zip" type="text" value={this.state.newZip} 
                  onChange={(event)=>{this.handleChange('newZip', event)}}></textarea>
         </label>
-          <p>EDITS WILL HAPPEN HERE</p>
+          
       </div>
     );
   }

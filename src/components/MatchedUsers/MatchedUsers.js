@@ -5,11 +5,9 @@ const MatchedUsers = () => (
   <div>
     <ul> Matched Users:
       <li>♌︎ Sun 👍<button className='send-message'>Send Message</button><button className='view-profile'>View Profile</button></li>
-      <li>♉︎ Moon 💖<button className='send-message'>Send Message</button><button className='view-profile'>View Profile</button></li>
       <li>♉︎ theRealMugen 💖<button className='send-message'>Send Message</button><button className='view-profile'>View Profile</button></li>
       <li>♉︎ melshere 💖<button className='send-message'>Send Message</button><button className='view-profile'>View Profile</button></li>
       <li>♍︎ pheldu95 💖<button className='send-message'>Send Message</button><button className='view-profile'>View Profile</button></li>
-      <li>♍︎ hesherbabe 💖<button className='send-message'>Send Message</button><button className='view-profile'>View Profile</button></li>
       <li>♑︎ aprilshowers 💖<button className='send-message'>Send Message</button><button className='view-profile'>View Profile</button></li>
       <li>♏︎ kitteness 💖<button className='send-message'>Send Message</button><button className='view-profile'>View Profile</button></li>
       <li>♑︎ chicanxpup 💖<button className='send-message'>Send Message</button><button className='view-profile'>View Profile</button></li>

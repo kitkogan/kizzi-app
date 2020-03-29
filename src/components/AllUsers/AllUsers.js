@@ -16,15 +16,15 @@ class AllUsers extends Component {
 
   //when the 'send message' button is clicked, the user is routed to the 'Conversation' component
   //where they can view past messages and/or send a message to the selected user
-  sendMessage = () => {
+  sendMessage = (id) => {
     console.log('in sendmessage');
-    this.props.history.push('/conversation');
+    this.props.history.push(`/conversation/${id}`);
   }
 
   //when the 'view profile' button is clicked, the user is router to the 'ViewProfile' component
   toViewProfilePage = (id) => {
     console.log('profile');
-    this.props.history.push(`/viewProfile/${id}`);
+        this.props.history.push({pathname: '/viewProfile/:id', payload: id});
   }
 
   removeUser = (id) => {
@@ -39,7 +39,7 @@ class AllUsers extends Component {
         {this.props.reduxState.userlist.map((user) => {
           return (<li key={user.id}>{user.username}
           <button className="view-profile" onClick={() =>this.toViewProfilePage(user.id)}>View Profile</button>
-          <button onClick={this.sendMessage} className='send-message'>Send Message</button>
+          <button onClick={() => this.sendMessage(user.id)} className='send-message'>Send Message</button>
           <button onClick={() => this.removeUser(user.id)} className='delete-block-user'>BLOCK</button></li>);
         })}
       </ul>

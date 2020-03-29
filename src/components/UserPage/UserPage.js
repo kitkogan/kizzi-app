@@ -16,10 +16,12 @@ const UserPage = (props) => (
       Welcome, { props.user.username }!
       <br></br>
     </h1> 
-    <img src='./images/kit_rulz.jpg' className='profilePic' alt='nonbinary femme playing guitar'/>
+    <img src='./images/the_butchelor.jpg' className='profilePic' alt='nonbinary femme playing guitar'/>
     <p>{props.user.description}</p>
-    <p>sign: Taurus</p>
+    <p>sign: Aquarius</p>
     <p>zip code: {props.user.zip}</p>
+
+     
     
     {/* <h2> */}
       {/* {props.user.description}</h2> */}

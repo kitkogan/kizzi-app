@@ -11,9 +11,10 @@ body {
 }
 
 form {
-    background-color: #868288;
+    background-color: #8b41d183;
+    background-image: url("/images/purplespace.jpg");
     width: 80%;
-    height: 300px;
+    height: 400px;
     margin: 20px auto;
     padding: 25px;
     border-radius: 2px;
@@ -24,7 +25,7 @@ input {
     margin-bottom: 10px;
 }
 
-.log-in, .log-out, .register, .edit-profile {
+.log-in, .log-out, .register, .edit-profile, .cancel, .save {
   background-color: #00acb0;
   border-radius: 4px;
   color: #f8f8f8;
@@ -68,4 +69,12 @@ input {
     outline:0;
     border-bottom:1px solid #444; 
     cursor: pointer;
+}
+
+.icon {
+  height: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  
 }

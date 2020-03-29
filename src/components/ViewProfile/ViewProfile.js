@@ -3,15 +3,15 @@ import {connect} from 'react-redux';
 
 class ViewProfile extends Component {
     
-    // componentDidMount() {
-    //     this.getProfile();
-    // }
+    componentDidMount() {
+        this.getProfile();
+    }
 
-    // // gets the profile of selcted user
-    // getProfile() {
-    //     console.log('this should be an id', user.id);
-    //     this.props.dispatch({ type: 'GET_ONE_USER', payload: user.id })
-    // }
+    // gets the profile of selcted user
+    getProfile() {
+        let thisId = this.props.history.location.payload;
+        this.props.dispatch({ type: 'GET_ONE_USER', payload: thisId })
+    }
 
     //go back to all users page when back button is clicked
     buttonClickBack = ()=>{
@@ -22,29 +22,41 @@ class ViewProfile extends Component {
         // let user = this.props.reduxState.oneUser;
         return(
             <div className="viewUserProfile">
-                {JSON.stringify(this.props.match.id)}
-            <button className='back-to-list' onClick={this.buttonClickBack}>BACK TO LIST</button>
+                {/* {JSON.stringify(this.props.reduxState.oneUser)} */}
+
+                {/* <ul>
+                    {this.props.reduxState.oneUser.map((user) => {
+                    return (<li key={user.id}>
+                        <br></br>
+                        {user.username}
+                        <br></br>
+                        {user.sign_name}{user.zip}{user.dob}{user.description}
+                    </li>);
+                    })}
+
+                 </ul> */}
+            {/* <button className='back-to-list' onClick={this.buttonClickBack}>BACK TO LIST</button> */}
             {/* <button onClick={()=>{this.buttonClickEdit(this.props.match.params.id)}}>EDIT</button> */}
             
             {/* <div className="viewProfileDiv">
-                <h3>{user.username}</h3>
-                <p>{user.description}</p>
-                <p>{user.dob}</p>
-                <p>{user.sign_name}</p>
-                <p>{user.zip}</p>
+                <h3>{this.user.username}</h3>
+                <p>{this.user.description}</p>
+                <p>{this.user.dob}</p>
+                <p>{this.user.sign_name}</p>
+                <p>{this.user.zip}</p>
             </div> */}
 
             <div>
-            <h3>the_butchelor</h3>
-            <img className='profilePic' src='./images/the_butchelor.jpg'/><button className='send-message'>Send Message</button>
-                <p>Handsome, genderqueer Butchelor. Hoping to Marry Rich. Must love cats.</p>
-                <p>dob: 01/23/1984</p>
-                <p>sign: Aquarius</p>
-                <p>zip: 98661</p>
+            <h3>kit_rulz</h3>
+            <img className='profilePic' src='./images/kit_rulz.jpg'/><button className='send-message'>Send Message</button>
+                <p>non-binary femme, here for a good time. Taurus sun, Aries moon, Pisces rising.</p>
+                <p>dob: 04/29/1984</p>
+                <p>sign: Taurus</p>
+                <p>zip: 55409</p>
                 
             </div>
     
-          </div> 
+          </div>  
         );
       }
     

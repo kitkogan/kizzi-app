@@ -13,7 +13,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 });
 
 // handles request to update user orofile information
-router.post('/editProfile', (req, res)=>{
+router.post('/editProfile/:id', (req, res)=>{
   //call to update title and description from DB for movie selected to edit
   let updates = req.body;
   let queryText = `UPDATE "user" SET "username" = $1, "description" = $2, "zip" = $3 WHERE "id" = $4`;
@@ -21,7 +21,7 @@ router.post('/editProfile', (req, res)=>{
       updates.newUsername,
       updates.newDescription,
       updates.newZip,
-      updates.userId
+      req.params.userId
   ];
   pool.query(queryText, queryValues).then((results)=>{
       console.log(results)
@@ -53,7 +53,7 @@ router.get('/viewProfile/:id', (req, res)=>{
   "user"."zip", "zodiac"."sign_name" 
   FROM "user" JOIN "zodiac" 
   ON "user"."sign" = "zodiac"."id" WHERE "user".id = $1`;
-  pool.query(queryText, [req.user.id])
+  pool.query(queryText, [req.params.id])
   .then((result)=>{
       //sends back the user results packaged in an object
       res.send(result.rows[0]);
