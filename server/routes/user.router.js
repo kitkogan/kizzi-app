@@ -13,18 +13,19 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 });
 
 // handles request to update user orofile information
-router.post('/editProfile/:id', (req, res)=>{
+router.put('/editProfile', (req, res)=>{
   //call to update title and description from DB for movie selected to edit
-  let updates = req.body;
+  console.log('req---------------------------------------:', req);
+  let updates = req.body.data;
+  console.log('iuywbgfjwebfahwfkbauhgbjkadrm',updates)
   let queryText = `UPDATE "user" SET "username" = $1, "description" = $2, "zip" = $3 WHERE "id" = $4`;
   let queryValues = [
       updates.newUsername,
       updates.newDescription,
       updates.newZip,
-      req.params.userId
+      req.user.id
   ];
   pool.query(queryText, queryValues).then((results)=>{
-      console.log(results)
       res.sendStatus(200)
   }).catch((error)=>{
       console.log('error updating user info', error);

@@ -58,8 +58,10 @@ function* getUsers() {
 
 function* updateProfile(id) {
   //runs POST request to server to update  and description
+  // const dataToSend = [id.payload.newUsername, id.payload.newDescription, id.payload.newZip];
+  // console.log(`id's payload------------------: ${dataToSend}`);
     try{
-      yield axios.post(`/api/user/editProfile/${id.payload}`, id.payload);
+      yield axios.put(`/api/user/editProfile`, {data: id.payload});
       console.log('in update user', id.payload);
   } catch(error){
       console.log('error updating user information');

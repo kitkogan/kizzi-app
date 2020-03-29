@@ -17,6 +17,11 @@ class EditProfile extends Component {
   //   this.props.dispatch({ type: 'GET_ONE_USER', payload: this.user.id });
   // }
 
+
+  componentDidMount() {
+    this.props.dispatch({type: `GET_ONE_USER`, payload: this.props.user.id});
+  }
+
   componentDidUpdate = (prevProps)=>{
     //when redux props update this will compare previous redux state to current and run accordingly
     if (this.props.reduxState.oneUser !== prevProps.reduxState.oneUser){
@@ -41,7 +46,7 @@ class EditProfile extends Component {
 
   handleSave = (id)=>{
     //on clicking save: dispatch to saga to trigger post request that will update user info
-    this.props.dispatch({type: 'UPDATE_PROFILE', payload: this.state})
+    this.props.dispatch({type: 'UPDATE_PROFILE', payload: id})
     console.log('in handle save', id)
     //step back to details page
     this.props.history.goBack();
@@ -56,6 +61,7 @@ class EditProfile extends Component {
   render() {
     return (
       <div className="Edit">
+        {JSON.stringify(this.state)}
         <button className="cancel" onClick={this.goBack}>CANCEL</button>
         <button className="save" onClick={() => this.handleSave(this.state)}>SAVE CHANGES</button>
         <br></br>
@@ -84,7 +90,8 @@ class EditProfile extends Component {
 
 //redux shares state with props
 const putReduxStateOnProps = (reduxState) => ({
-  reduxState
+  reduxState,
+  user: reduxState.user,
 })
 
 export default connect(putReduxStateOnProps)(EditProfile);
