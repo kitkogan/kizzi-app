@@ -8,16 +8,9 @@ class EditProfile extends Component {
   state = {
     newUsername: '',
     newDescription: '',
-    newZip: '',
-    // userId: this.props.user.id
+    newZip: ''
   }
-  // componentDidMount = ()=>{
-  //     console.log('in component did mount edit profile', this.user.id)
-  //    //dispatch to saga to then run get request and store in Redux
-  //   this.props.dispatch({ type: 'GET_ONE_USER', payload: this.user.id });
-  // }
-
-
+ 
   componentDidMount() {
     this.props.dispatch({type: `GET_ONE_USER`, payload: this.props.user.id});
   }
