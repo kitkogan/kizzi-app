@@ -29,4 +29,4 @@ If you would like to name your database something else, you will need to change 
 * Navigate to `localhost:3000`
 
 ## Kizzi
-A full stack match making app that makes compatability reccommendations based on zip code and zodiac compatability
+A full stack match making app that makes compatability reccommendations based on zip code and zodiac sign
